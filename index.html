@@ -1,27 +1,116 @@
 <!doctype html>
 <html lang="en">
-  <!-- DO NOT CHANGE CODE WITHIN THE HEAD ELEMENT -->
-  <!-- UNLESS YOU KNOW WHAT YOU"RE DOING-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <!-- add fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
       rel="stylesheet"
     />
-    <!-- local style -->
     <link rel="stylesheet" href="styles/global.css" />
   </head>
   <body>
     <!-- Header Area -->
-    <header></header>
+    <header>
+<!-- navbar -->
+      <nav>
+        <div class="navbar">
+          <a href="contact.html"><h1>bintaCode</h1></a>
+            <ul>
+              <li><a href="about.html" class="list">About Me</a></li>
+              <li><a href="project.html" class="list">Projects</a></li>
+              <li><a href="contact.html"class="list">Contact</a></li>
+              <li><a href="" class="btn-small">Resume</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </header>
     <!-- Main Area -->
     <main>
-      <h1>My Amazing Portfolio</h1>
+
+      <div class="main-div">
+        <div class="text-div">
+          <p>Hello,🙂 my name is</p>
+          
+          <h2 class="h2">Fatima Binta Ochalifu</h2>
+          <h2 class="h">I build things for the web</h2>
+          <p class="p">I am a frontend Developer who specializes in building (and occassionally designing products)exceptional digital experience. Currently i'm focused on building accessible human-centerd products</p>
+          <button class="btn-big"><a href="">Check out my works!</a></button>
+                </div>
+                
+                <div class="image-div">
+                  <img src="assets/images/myimage2.png" alt="myImage">
+                </div>
+      </div>
     </main>
+    <section class="contact-section">
+      <div class="contact-form">
+        <h2>Contact Me</h2>
+        <form id="contactForm" novalidate>
+          <div class="input-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required />
+          </div>
+  
+          <div class="input-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required />
+          </div>
+  
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+  
+          <div class="input-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+  
+          <button type="submit">Send Message</button>
+        </form>
+        <div id="formResponse" class="form-response"></div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const responseDiv = document.getElementById('formResponse');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+   
+    if (!firstName || !lastName || !email || !message) {
+      responseDiv.innerHTML = `<p class="error">Please fill in all fields.</p>`;
+      return;
+    }
+
+    responseDiv.innerHTML = `
+      <div class="success">
+        <h3>Thank you, ${firstName} ${lastName}!</h3>
+        <p>Your message has been received.</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      </div>
+    `;
+
+    form.reset();
+  });
+});
+    </script>
+    
+
   </body>
 </html>
